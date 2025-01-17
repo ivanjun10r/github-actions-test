@@ -1,4 +1,4 @@
-name: CI
+name: PYTHON-CI
 
 on:
   push:
@@ -23,12 +23,13 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r dev-requirements.txt
+          pip install codecov
 
       - name: Run tests with coverage
         run: |
-          pytest --cov=main.py tests/ > result.log; tail -n 10 result.log
+          pytest --cov=main.py tests/
 
       - name: Upload coverage report
         uses: codecov/codecov-action@v3
         with:
-          file: ./coverage.xml
+          file: ${{ secrets.CODECOV_TOKEN }}

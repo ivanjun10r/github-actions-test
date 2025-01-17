@@ -1,5 +1,8 @@
 # Python Script Template
 
+[![codecov](https://codecov.io/gh/ivanjun10r/github-actions-test/branch/main/graph/badge.svg?token=e033729e-1c76-4ca8-95ce-39eb25d16d91)](https://codecov.io/gh/ivanjun10r/github-actions-test)
+
+
 This sample repo contains the recommended structure for a Python script. In this example, we use `pytest` to test features in your script. 
 
 For a more in-depth tutorial, see our [Python tutorial](https://code.visualstudio.com/docs/python/python-tutorial).
