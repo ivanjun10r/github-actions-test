@@ -1,0 +1,29 @@
+name: Create and Update Asana task
+
+on:
+  issues:
+    types: [opened, closed]
+
+jobs:
+    create_update_asana_task:
+        runs-on: ubuntu-latest
+        permissions:
+          issues: write
+          pull-requests: write
+          contents: read
+        steps:
+            - uses: actions/checkout@v3
+            - uses: ./
+              with:
+                ASANA_WORKSPACE_ID: '1213362407219558' # OK
+                ASANA_PROJECT_ID: '1214917633635919' # OK
+                ASANA_SECTION_TO_DO: '1208647756867715'
+                ASANA_SECTION_DOING: '1206013198716545'
+                ASANA_CUSTOM_FIELD_STATUS_ID: '1205880144741940'
+                ASANA_CUSTOM_FIELD_STATUS_IN_PROGRESS_ID: '1205880144741943'
+                ASANA_CUSTOM_FIELD_STATUS_RESOLVED_ID:  '1205880144741941'
+                ASANA_CUSTOM_FIELD_STATUS_ISSUE_ID: '1205880144741942'
+
+              env:
+                ASANA_PAT: ${{ secrets.ASANA_PAT }}
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
