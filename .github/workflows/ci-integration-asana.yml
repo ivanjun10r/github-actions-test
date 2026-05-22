@@ -1,0 +1,36 @@
+name: Create and Update Asana task
+
+on:
+  issues:
+    types: [opened, edited, closed]
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: 'Issue or PR number to sync retroactively to Asana'
+        required: true
+
+jobs:
+    create_update_asana_task:
+        runs-on: ubuntu-latest
+        permissions:
+          issues: write
+          pull-requests: write
+          contents: read
+        steps:
+            - uses: actions/checkout@v3
+            - uses: Thalocan-TRI/integration-asana-action@v3
+              with:
+                ASANA_WORKSPACE_ID: '1205703551806704'
+                ASANA_PROJECT_ID: '1205703556074586'
+                ASANA_SECTION_TO_DO: '1210534537106063'
+                ASANA_SECTION_DOING: '1206127373766390'
+                ASANA_SECTION_DONE: '1206127373766390'
+                ASANA_CUSTOM_FIELD_STATUS_ID: ''
+                ASANA_CUSTOM_FIELD_STATUS_IN_PROGRESS_ID: ''
+                ASANA_CUSTOM_FIELD_STATUS_RESOLVED_ID:  ''
+                ASANA_CUSTOM_FIELD_STATUS_ISSUE_ID: ''
+                ISSUE_NUMBER: ${{ github.event.inputs.issue_number }}
+
+              env:
+                ASANA_PAT: ${{ secrets.ASANA_PAT }}
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
