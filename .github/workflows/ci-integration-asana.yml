@@ -20,15 +20,15 @@ jobs:
             - uses: actions/checkout@v3
             - uses: Thalocan-TRI/integration-asana-action@v3
               with:
-                ASANA_WORKSPACE_ID: '1205703551806704'
-                ASANA_PROJECT_ID: '1205703556074586'
-                ASANA_SECTION_TO_DO: '1210534537106063'
-                ASANA_SECTION_DOING: '1206127373766390'
-                ASANA_SECTION_DONE: '1206127373766390'
-                ASANA_CUSTOM_FIELD_STATUS_ID: ''
-                ASANA_CUSTOM_FIELD_STATUS_IN_PROGRESS_ID: ''
-                ASANA_CUSTOM_FIELD_STATUS_RESOLVED_ID:  ''
-                ASANA_CUSTOM_FIELD_STATUS_ISSUE_ID: ''
+                ASANA_WORKSPACE_ID: '1213362407219558'
+                ASANA_PROJECT_ID: '1214917633635919'
+                ASANA_SECTION_TO_DO: '1214917526162393'
+                ASANA_SECTION_DOING: '1214917526162396'
+                ASANA_SECTION_DONE: '1214917635404377'
+                ASANA_CUSTOM_FIELD_STATUS_ID: '1205880144741940'
+                ASANA_CUSTOM_FIELD_STATUS_IN_PROGRESS_ID: '1205880144741943'
+                ASANA_CUSTOM_FIELD_STATUS_RESOLVED_ID:  '1205880144741941'
+                ASANA_CUSTOM_FIELD_STATUS_ISSUE_ID: '1205880144741942'
                 ISSUE_NUMBER: ${{ github.event.inputs.issue_number }}
 
               env:
